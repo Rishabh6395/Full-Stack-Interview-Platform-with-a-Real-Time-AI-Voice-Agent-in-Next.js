@@ -1,12 +1,13 @@
 {
-  "name": "builder-backend",
+  "name": "@builder/api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "tsx src/index.ts",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc --noEmit",
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
     "seed": "tsx scripts/seed.ts"
   },
   "keywords": [],

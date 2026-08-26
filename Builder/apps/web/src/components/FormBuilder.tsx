@@ -53,6 +53,7 @@ export function FormBuilder() {
     const newField: FormField = {
       id: `${type}_${fieldIdCounter.current}`,
       type,
+      key: `${type}_${fieldIdCounter.current}`,
       label: type === 'submit' ? 'Submit form' : template?.title ?? 'New field',
       required: false,
       placeholder: type === 'submit' ? undefined : 'Type your answer',

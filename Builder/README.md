@@ -1,42 +1,39 @@
-# Builder
+# Builder Platform
 
-Full-stack form builder workspace with separate frontend and backend apps.
+Turborepo workspace for the Builder Platform frontend and backend.
 
-## Project Structure
+## Structure
 
-```text
-Builder/
-  Backend/    Express + TypeScript API, database scripts, server utilities
-  Frontend/   React + Vite client
+- `apps/web` — Vite + React form-builder frontend.
+- `apps/api` — Express + PostgreSQL API.
+- `packages/*` — shared configuration and UI-package space for future cross-app code.
+
+## Getting started
+
+Install all workspace dependencies from the repository root:
+
+```sh
+npm install
 ```
 
-## Backend
+Set `DATABASE_URL` in `apps/api/.env`, then run both applications:
 
-```bash
-cd Backend
+```sh
 npm run dev
 ```
 
-Useful commands:
+Run one app when needed:
 
-```bash
+```sh
+npm run dev --workspace=@builder/web
+npm run dev --workspace=@builder/api
+```
+
+Other root commands:
+
+```sh
 npm run build
+npm run check-types
+npm run lint
 npm run seed
-npm start
-```
-
-The backend loads environment variables from `Backend/.env` and defaults to port `5000`.
-
-## Frontend
-
-```bash
-cd Frontend
-npm run dev
-```
-
-Useful commands:
-
-```bash
-npm run build
-npm run preview
 ```
