@@ -6,6 +6,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "dev": "tsx watch src/index.ts",
+    "debug": "tsx watch --inspect src/index.ts",
     "build": "tsc",
     "check-types": "tsc --noEmit",
     "seed": "tsx scripts/seed.ts"

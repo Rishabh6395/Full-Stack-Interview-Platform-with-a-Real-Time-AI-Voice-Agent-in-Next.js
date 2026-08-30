@@ -22,3 +22,34 @@ CREATE TABLE workflows (
     form_id INT REFERENCES forms(id),
     steps JSONB NOT NULL -- Define transition paths, e.g., Pending -> Approved
 );
+
+-- 4. Users Table: Stores user information
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 5. User Roles Table: Assigns roles to users
+CREATE TABLE user_roles (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES employees(id) ON DELETE CASCADE,
+    role VARCHAR(50) NOT NULL
+);
+
+-- 6. User Permissions Table: Assigns permissions to users
+CREATE TABLE user_permissions (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES employees(id) ON DELETE CASCADE,
+    permission VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE ROLES (
+    id SERIAL PRIMARY KEY,
+    roleName VARCHAR(50) NOT NULL,
+    roleDescription VARCHAR(255),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
