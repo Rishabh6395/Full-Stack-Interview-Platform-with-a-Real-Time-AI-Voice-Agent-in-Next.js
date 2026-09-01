@@ -5,14 +5,22 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "seed": "npm run seed --workspace=@builder/api",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "check-types": "turbo run check-types",
+    "seed": "tsx scripts/seed.ts"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "enc": "^0.4.0",
+    "pg": "^8.22.0",
+    "vm": "^0.1.0"
   },
   "devDependencies": {
     "prettier": "3.9.6",
     "turbo": "^2.10.12",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "@types/pg": "^8.20.0",
+    "tsx": "^4.22.4"
   },
   "engines": {
     "node": ">=20"

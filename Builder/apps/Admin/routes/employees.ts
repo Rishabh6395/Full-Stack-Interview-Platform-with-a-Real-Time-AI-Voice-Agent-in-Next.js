@@ -1,9 +1,10 @@
 import express from 'express';
-import db from '../db/db.js';
+// import db from '../db/db.js';
+import db from "@repo/db";
 
 const router = express.Router();
 
-router.post('/api/v1/create-role', async (req, res) => {
+router.post('/admin/v1/create-role', async (req, res) => {
     const {roleName, roleDescription} = req.body;
 
     try {
@@ -17,8 +18,8 @@ router.post('/api/v1/create-role', async (req, res) => {
     }
 })
 
-
-router.post('/api/v1/add-roles', async (req, res) => {
+// add role to the employee
+router.post('/admin/v1/add-roles', async (req, res) => {
     const {userId, roleName} = req.body;
 
     try {
@@ -52,8 +53,17 @@ router.post('/api/v1/add-roles', async (req, res) => {
     }
 })
 
-router.post('/api/v1/employees', async (req, res) => {
+router.post('/admin/v1/employees', async (req, res) => {
     const {username, email, password} = req.body;
+
+    if (!username || !email || !password) {
+        return res.status(400).json({ error: 'username, email and password are required.' });
+    }
+
+    const checkAlreadyExist = await db.query('SELECT * FROM employees WHERE username = $1 OR email = $2', [username, email]);
+    if (checkAlreadyExist.rows.length > 0) {
+        return res.status(400).json({ error: 'User already exists.' });
+    }
 
     try {
         const queryText = 'INSERT INTO employees (username, email, password) VALUES ($1, $2, $3) RETURNING *';
@@ -66,7 +76,7 @@ router.post('/api/v1/employees', async (req, res) => {
 })
 
 
-// router.post('/api/submissions', async(req, res) => {
+// router.post('/admin/submissions', async(req, res) => {
 //     try {
 //         const {form_id, data} = req.body;
 

@@ -2,7 +2,7 @@ import express from 'express'
 import formsRouter from '../routes/forms.js'
 import employeeRouter from '../routes/employees.js'
 import cors from 'cors'
-import db from '../db/db.js'
+import db from "@repo/db";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,7 +15,7 @@ app.use(employeeRouter);
 
 
 
-app.post('/api/v1/insert', async (req, res) => {
+app.post('/admin/v1/insert', async (req, res) => {
     const { flagKey, flagValue } = req.body;
 
     try {
@@ -28,7 +28,7 @@ app.post('/api/v1/insert', async (req, res) => {
     }
 })
 
-app.get('/api/v1/flags/:key', async (req, res) => {
+app.get('/admin/v1/flags/:key', async (req, res) => {
   const flagKey = req.params.key;
 
   try {

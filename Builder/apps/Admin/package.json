@@ -1,5 +1,5 @@
 {
-  "name": "@builder/api",
+  "name": "@builder/admin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,7 +22,8 @@
     "enc": "^0.4.0",
     "express": "^5.2.1",
     "pg": "^8.22.0",
-    "vm": "^0.1.0"
+    "vm": "^0.1.0",
+    "@repo/db": "1.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

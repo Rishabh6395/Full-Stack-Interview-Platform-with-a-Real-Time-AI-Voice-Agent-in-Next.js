@@ -5,7 +5,7 @@ import runUserScript from '../utils/sandbox.js'
 
 const router = express.Router();
 
-router.post('/api/forms', async(req, res) =>{
+router.post('/admin/forms', async(req, res) =>{
     try{
         const {title, config} = req.body;
 
@@ -21,7 +21,7 @@ router.post('/api/forms', async(req, res) =>{
     }
 })
 
-router.get('/api/forms/:id', async (req, res) => {
+router.get('/admin/forms/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const form = await db.query("SELECT * FROM forms WHERE id = $1", [id]);
@@ -38,7 +38,7 @@ router.get('/api/forms/:id', async (req, res) => {
 });
 
 
-router.post('/api/submissions', async(req, res) => {
+router.post('/admin/submissions', async(req, res) => {
     try {
         const {form_id, data} = req.body;
 
@@ -76,7 +76,7 @@ router.post('/api/submissions', async(req, res) => {
     }
 })
 
-router.get('/api/submissions/:formId', async(req, res)=>{
+router.get('/admin/submissions/:formId', async(req, res)=>{
     try {
         console.log(req.params);
         const {formId} = req.params;

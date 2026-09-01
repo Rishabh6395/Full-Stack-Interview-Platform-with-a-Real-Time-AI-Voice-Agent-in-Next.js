@@ -1,0 +1,28 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/db.js",
+  "types": "./dist/db.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/db.d.ts",
+      "import": "./dist/db.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "seed": "tsx seed.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

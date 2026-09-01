@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Attach to API",
+      "name": "Attach to Admin",
       "port": 9229,
       "restart": true,
       "skipFiles": ["<node_internals>/**"]
