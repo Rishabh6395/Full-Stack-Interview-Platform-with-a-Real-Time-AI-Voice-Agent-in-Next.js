@@ -3,16 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/db.js",
-  "types": "./dist/db.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/db.d.ts",
-      "import": "./dist/db.js"
-    }
-  },
+  "main": "./db.ts",
+  "types": "./db.ts",
   "scripts": {
-    "build": "tsc",
     "seed": "tsx seed.ts"
   },
   "dependencies": {

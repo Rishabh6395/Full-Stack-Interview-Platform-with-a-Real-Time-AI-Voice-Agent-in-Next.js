@@ -1,5 +1,4 @@
 import express from 'express'
-import formsRouter from '../routes/forms.js'
 import employeeRouter from '../routes/employees.js'
 import cors from 'cors'
 import db from "@repo/db";
@@ -10,7 +9,6 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-app.use(formsRouter);
 app.use(employeeRouter);
 
 
