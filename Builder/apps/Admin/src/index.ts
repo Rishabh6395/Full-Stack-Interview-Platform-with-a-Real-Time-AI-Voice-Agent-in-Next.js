@@ -21,7 +21,7 @@ app.post('/admin/v1/insert', async (req, res) => {
     try {
         const queryText = 'INSERT INTO feature_flags (flag_key, flag_value) VALUES ($1, $2) RETURNING *';
         const result = await db.query(queryText, [flagKey, flagValue]);
-        res.json(result.rows[0]); // pg returns rows as a flat array of objects
+        res.json(result.rows[0]); // pg returns rows as a flat array of objects.
     } catch (err) {
         console.error(err);
         res.status(500).send('Database Error');
