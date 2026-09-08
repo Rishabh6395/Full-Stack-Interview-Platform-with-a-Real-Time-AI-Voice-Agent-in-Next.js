@@ -1,5 +1,6 @@
 import express from 'express'
 import employeeRouter from '../routes/employees.js'
+import workflowRouter from '../routes/workflow.js'
 import cors from 'cors'
 import db from "@repo/db";
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(employeeRouter);
+app.use(workflowRouter);
 
 
 
@@ -46,5 +48,5 @@ app.get('/admin/v1/flags/:key', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on portt ${port}`);
 })
