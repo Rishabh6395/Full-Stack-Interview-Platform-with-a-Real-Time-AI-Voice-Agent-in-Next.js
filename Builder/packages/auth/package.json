@@ -1,0 +1,13 @@
+{
+  "name": "@repo/auth",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "type": "module",
+  "types": "./index.ts",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6"
+  }
+}

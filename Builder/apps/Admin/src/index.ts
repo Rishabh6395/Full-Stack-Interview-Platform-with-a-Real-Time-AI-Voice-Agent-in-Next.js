@@ -1,6 +1,7 @@
 import express from 'express'
 import employeeRouter from '../routes/employees.js'
 import workflowRouter from '../routes/workflow.js'
+import auth from '../routes/auth.js'
 import cors from 'cors'
 import db from "@repo/db";
 
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use(employeeRouter);
 app.use(workflowRouter);
+app.use(auth);
 
 
 

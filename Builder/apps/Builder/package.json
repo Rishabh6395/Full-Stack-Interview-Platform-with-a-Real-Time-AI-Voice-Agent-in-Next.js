@@ -15,7 +15,8 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "pg": "^8.22.0",
-    "@repo/db": "1.0.0"
+    "@repo/db": "1.0.0",
+    "@repo/auth": "*"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
