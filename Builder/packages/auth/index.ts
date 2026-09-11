@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 
+import { error } from 'node:console';
+
 const authenticate = (req: any, res: any, next: any) => {
     try {
         const token = req.headers['authorization']?.replace('Bearer ', '');
@@ -8,10 +10,12 @@ const authenticate = (req: any, res: any, next: any) => {
             return res.status(401).json({ success: false, message: "No auth token provided" });
         }
 
-        const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
-        req.user = { id: decoded.id, email: decoded.email, role: decoded.role };
+        const decoded: any = jwt.verify(token, 'rishabhsecrettoken-ondevonly' as string);
+        req.user = { id: decoded.id, email: decoded.email };
         next();
     } catch (err: any) {
+        console.log(process.env.JWT_SECRET)
+        console.error(err)
         res.status(401).json({ success: false, message: "Invalid or expired token" });
     }
 };

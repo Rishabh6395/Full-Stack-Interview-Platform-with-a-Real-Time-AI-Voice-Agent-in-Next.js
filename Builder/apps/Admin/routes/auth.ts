@@ -9,7 +9,7 @@ router.post('/admin/v1/auth/login', async (req, res) => {
     try {
         const { emailaddress, password } = req.body;
 
-        const result = await db.query("SELECT * FROM users WHERE email = $1", [emailaddress]);
+        const result = await db.query("SELECT * FROM users WHERE emailaddress = $1", [emailaddress]);
 
         if (result.rows.length === 0) {
             return res.status(401).json({ success: false, message: "Invalid credentials" });
